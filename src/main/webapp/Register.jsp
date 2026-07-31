@@ -24,7 +24,7 @@ String error = null;
     <input type="text" class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="emailphone"    name="emailorphone"  >
   </div>
   <div class="p-3">
-    <label for="pass" class="block text-gray-700 font-medium mb-2" name="password">Password</label>
+    <label for="pass" class="block text-gray-700 font-medium mb-2" >Password</label>
     <input type="password" class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="pass"  name="password">
   </div>
   
