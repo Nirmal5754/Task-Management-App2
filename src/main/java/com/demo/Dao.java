@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.protocol.Resultset;
-
 public class Dao  {
 
 	
@@ -19,7 +17,11 @@ public class Dao  {
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1","root","raj5754@J"); 
+			 con = DriverManager.getConnection(
+					    System.getenv("DB_URL"),
+					    System.getenv("DB_USER"),
+					    System.getenv("DB_PASSWORD")
+					);
 			System.out.println("connection establish result "+ con);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
