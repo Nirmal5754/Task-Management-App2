@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.net.URI;
 public class Dao  {
 
 	
@@ -17,10 +17,19 @@ public class Dao  {
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("All environment variables:");
-			System.out.println("DB_URL = " + System.getenv("DB_URL"));
-			System.out.println("DB_USER = " + System.getenv("DB_USER"));
-			System.out.println("DB_PASSWORD = " + System.getenv("DB_PASSWORD"));
+			String jdbc = System.getenv("DB_URL");
+
+			System.out.println("DB_URL = " + jdbc);
+
+			if (jdbc == null) {
+			    throw new RuntimeException("DB_URL environment variable not found");
+			}
+
+			String noJdbc = jdbc.replace("jdbc:", "");
+			URI uri = URI.create(noJdbc);
+
+			System.out.println("HOST = " + uri.getHost());
+			System.out.println("PORT = " + uri.getPort());
 			 con = DriverManager.getConnection(
 					    System.getenv("DB_URL"),
 					    System.getenv("DB_USER"),
