@@ -18,7 +18,9 @@ public class Dao  {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("All environment variables:");
-			System.getenv().forEach((k, v) -> System.out.println(k + " = " + v));
+			System.out.println("DB_URL = " + System.getenv("DB_URL"));
+			System.out.println("DB_USER = " + System.getenv("DB_USER"));
+			System.out.println("DB_PASSWORD = " + System.getenv("DB_PASSWORD"));
 			 con = DriverManager.getConnection(
 					    System.getenv("DB_URL"),
 					    System.getenv("DB_USER"),
